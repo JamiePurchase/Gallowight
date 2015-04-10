@@ -2,31 +2,32 @@ package twistedkinaesthetix.gallowight;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Rect;
 
 public class Background
 {
-    private Bitmap image;
-    private int x, y, dx;
+    //private Bitmap image;
+    private int x, y;
 
-    public Background(Bitmap res)
+    //public Background(Bitmap res)
+    public Background()
     {
-        image = res;
+        //image = res;
     }
 
     public void update()
     {
-        x += dx;
-        if(x<0) {x=0;}
+
     }
 
     public void draw(Canvas canvas)
     {
-        canvas.drawBitmap(image, x, y, null);
-        if(x<0) {canvas.drawBitmap(image, x+GamePanel.WIDTH, y, null);}
-    }
-
-    public void setVector(int dx)
-    {
-        this.dx = dx;
+        Paint paint = new Paint();
+        Rect r = new Rect(0, 0, GamePanel.WIDTH, GamePanel.HEIGHT);
+        paint.setStyle(Paint.Style.FILL);
+        paint.setColor(Color.rgb(202, 245, 122));
+        canvas.drawRect(r, paint);
     }
 }
