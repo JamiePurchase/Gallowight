@@ -1,13 +1,18 @@
 package twistedkinaesthetix.gallowight;
 
 import android.content.Context;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 public class GamePanel extends SurfaceView implements SurfaceHolder.Callback
 {
+    public static final int WIDTH = 856;
+    public static final int HEIGHT = 480;
     private MainThread thread;
+    private Background bg;
 
     public GamePanel(Context context)
     {
@@ -45,6 +50,8 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback
     @Override
     public void surfaceCreated(SurfaceHolder holder)
     {
+        bg = new Background(BitmapFactory.decodeResource(getResources(), R.drawable.grassbg1));
+        bg.setVector(-5);
         thread.setRunning(true);
         thread.start();
     }
@@ -57,7 +64,12 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback
 
     public void update()
     {
+        bg.update();
+    }
 
+    public void draw(Canvas canvas)
+    {
+        bg.draw(canvas);
     }
 
 }
