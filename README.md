@@ -27,13 +27,13 @@ Battle
 ### Resources
 
 Sprites
-None at the moment
+* None at the moment
 
 Logos and Wordart
-[CoolText](http://www.cooltext.com)
+* [CoolText](http://www.cooltext.com)
 
 Audio
-None at the moment
+* None at the moment
 
 ### Links
 
@@ -42,3 +42,7 @@ Tools
 
 Tutorials
 * [Paymon Wang-Lofti](https://www.youtube.com/playlist?list=PLWweaDaGRHjvQlpLV0yZDmRKVBdy6rSlg)
+
+### Version
+
+Last Updated: 18/04/2015

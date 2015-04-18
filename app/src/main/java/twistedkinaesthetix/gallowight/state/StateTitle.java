@@ -27,11 +27,11 @@ public class StateTitle extends State
     public void render(Canvas canvas)
     {
         Drawing.fillScreen(canvas, 255, 255, 255);
-        Drawing.imageDraw(canvas, "temp", 0, 0);
+        /*Drawing.imageDraw(canvas, "temp", 0, 0);
         for(int ui=0; ui<uiArray.length; ui++)
         {
             uiArray[ui].render(canvas);
-        }
+        }*/
     }
 
     public void tick()

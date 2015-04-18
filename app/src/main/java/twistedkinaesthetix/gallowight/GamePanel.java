@@ -1,7 +1,7 @@
 package twistedkinaesthetix.gallowight;
 
 import twistedkinaesthetix.gallowight.state.State;
-import twistedkinaesthetix.gallowight.state.StateIntro;
+import twistedkinaesthetix.gallowight.state.StateTitle;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Canvas;
@@ -64,8 +64,8 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback
     @Override
     public void surfaceCreated(SurfaceHolder holder)
     {
-        //bg = new Background(BitmapFactory.decodeResource(getResources(), R.drawable.grassbg1));
-        setState(new StateIntro());
+        //setState(new StateIntro());
+        setState(new StateTitle());
         thread.setRunning(true);
         thread.start();
     }
