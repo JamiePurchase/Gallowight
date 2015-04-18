@@ -1,7 +1,9 @@
 package twistedkinaesthetix.gallowight;
 
+import twistedkinaesthetix.gallowight.state.State;
+import twistedkinaesthetix.gallowight.state.StateIntro;
 import android.content.Context;
-import android.graphics.BitmapFactory;
+import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
@@ -11,8 +13,9 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback
 {
     public static final int WIDTH = 1200;
     public static final int HEIGHT = 800;
+    private static Resources RESOURCES;
+    private static State STATE;
     private MainThread thread;
-    private Background bg;
 
     public GamePanel(Context context)
     {
@@ -20,6 +23,17 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback
         getHolder().addCallback(this);
         thread = new MainThread(getHolder(), this);
         setFocusable(true);
+        RESOURCES = getResources();
+    }
+
+    public static Resources getRes()
+    {
+        return RESOURCES;
+    }
+
+    public static void setState(State state)
+    {
+        STATE = state;
     }
 
     @Override
@@ -51,7 +65,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback
     public void surfaceCreated(SurfaceHolder holder)
     {
         //bg = new Background(BitmapFactory.decodeResource(getResources(), R.drawable.grassbg1));
-        bg = new Background();
+        setState(new StateIntro());
         thread.setRunning(true);
         thread.start();
     }
@@ -62,14 +76,14 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback
         return super.onTouchEvent(event);
     }
 
-    public void update()
+    public void tick()
     {
-        bg.update();
+        STATE.tick();
     }
 
-    public void draw(Canvas canvas)
+    public void render(Canvas canvas)
     {
-        bg.draw(canvas);
+        STATE.render(canvas);
     }
 
 }
